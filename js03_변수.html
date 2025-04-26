@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1 id="my_number"></h1>
+  <h1 id="my_string"></h1>
+
+  <script>
+    // 자바스크립트
+    // 변수 : 값을 저장하는 공간 (저장공간)
+    var 숫자 = 1
+    document.getElementById('my_number').innerHTML = 숫자
+
+    document.getElementById('my_number').addEventListener('click', function(){
+      // 변수는 = 을 기준으로
+      // 왼쪽은 공간으로 취급
+      // 오른쪽은 값으로 취급
+      // = : 오른쪽에 있는 값을 왼쪽 공간에 담아라 (같다X)
+      숫자 = 숫자 + 1
+      // 숫자 = 숫자 - 1
+      // 숫자 = 숫자 * 2
+      // 숫자 = 숫자 / 2
+      document.getElementById('my_number').innerHTML = 숫자
+    })
+
+    // 변수에 어떤 값을 담아놓냐에 따라 공간의 형태가 다름
+    // 숫자형 공간, 글자형 공간, 묶음형 공간...
+    // 형태 => 자료형
+    var 글자 = "안녕하세요"     // 글자는 "" 로 감싸준다
+    document.getElementById('my_string').innerHTML = 글자
+    document.getElementById('my_string').addEventListener('click',function(){
+      // 문자열을 담아놓은 변수는 -, *, /, % 같은 기호는 사용하면 안됨
+      // 문자열은 + 만 가능
+      글자 = 글자 + "ㅎ";     // 원래있던 글자에 ㅎ을 이어붙인다
+      document.getElementById('my_string').innerHTML = 글자
+    })
+
+    // 숫자는 더하기, 빼기, 곱하기, 나누기, 나머지구하기 계산이 가능
+    // 글자(문자열)는 더하기(이어붙이기)만 가능
+    숫자 + 1
+    숫자 + 2
+    글자 + "이어붙이기"
+
+  </script>
+</body>
+</html>

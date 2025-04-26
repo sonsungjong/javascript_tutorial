@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>박스 열고 닫기</title>
+  <style>
+    .box{
+      background: yellowgreen;
+      padding:0.5em 1.5em;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="box" id="my_box">
+    <button id="close_btn">닫기</button>
+  </div>
+  <button id="open_btn">열기</button>
+
+  <script>
+    // 자바스크립트로 클릭 이벤트를 추가
+    document.getElementById('open_btn').addEventListener('click', function(){
+      // open_btn 을 클릭하면 동작할 코드
+      // my_box 의 display:none 을 display:block 으로 바꿔서 보이게 한다
+      document.getElementById('my_box').style.display = "block";
+    })
+
+    // close_btn 을 클릭하면 my_box를 가린다
+    document.getElementById('close_btn').addEventListener('click', function(){
+      document.getElementById('my_box').style.display = "none";
+    })
+  </script>
+</body>
+</html>

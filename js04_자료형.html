@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Type(자료형)</title>
+</head>
+<body>
+  <h1 id="number"></h1>
+  <h1 id="string"></h1>
+  <button id="더하기">더하기</button>
+  <button id="빼기">빼기</button>
+  <button id="곱하기">곱하기</button>
+  <button id="나누기">나누기</button>
+  <button id="나머지구하기">나머지구하기</button>
+
+  <script>
+    var 숫자 = 0
+    var 정수 = 3      // 소수점 없는 숫자는 정수
+    var 실수 = 3.3    // 소수점 있는 숫자는 실수
+    document.getElementById('number').innerHTML = 숫자
+
+    document.getElementById('더하기').addEventListener('click', function(){
+      숫자 = 숫자 + 1   // 원래있던 숫자에 +1 을 한다음 넣는다
+      document.getElementById('number').innerHTML = 숫자    // 바뀐 숫자로 화면에 적용한다
+    })
+
+    // 해보기 : 빼기(-1), 곱하기(*2), 나누기(/2)
+    document.getElementById('빼기').addEventListener('click',function(){
+      숫자 = 숫자 - 1
+      document.getElementById('number').innerHTML = 숫자
+    })
+
+    document.getElementById('곱하기').addEventListener('click',function(){
+      숫자 = 숫자 * 2
+      document.getElementById('number').innerHTML = 숫자
+    })
+
+    document.getElementById('나누기').addEventListener('click',function(){
+      숫자 = 숫자 / 2
+      document.getElementById('number').innerHTML = 숫자
+    })
+
+    document.getElementById('나머지구하기').addEventListener('click',function(){
+      숫자 = 숫자 % 2       // 2로 나눈 나머지를 계산해라
+      document.getElementById('number').innerHTML = 숫자
+    })
+
+    var 문자열 = "";      // var을 적으면 공간을 새로 생성
+    문자열 = "반갑습니다"     // 공간에 '반갑습니다' 를 넣는다
+    // 문자열 형태는 이어붙이기만 가능
+    문자열 = 문자열 + "!";
+    문자열 += "@";
+    document.getElementById('string').innerHTML = 문자열
+
+  </script>
+</body>
+</html>

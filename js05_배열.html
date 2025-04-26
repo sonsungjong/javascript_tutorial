@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>배열 형태</title>
+</head>
+<body>
+  <h1 class="num"></h1>
+  <h1 class="num"></h1>
+  <h1 class="num"></h1>
+
+  <script>
+    // 배열 : 변수들을 뭉쳐놓은 것
+    var 숫자1 = 1
+    var 숫자2 = 2
+    var 숫자3 = 3
+    
+    // 숫자 세트 [배열]
+    // 배열은 왜 사용하는가?
+    // 변수를 따로 만들면 흩어진 변수를 직접 다 찾아줘야하지만
+    // 배열로 만들어놓으면 하나의 키워드로 모여있기 때문에 쉽게 찾을 수 있다 (사람,컴퓨터)
+    var 배열 = [1, 5, 9]
+    
+    // *배열은 0번부터 시작*
+    // 클래스 이름으로 찾으려면 배열번호로 사용
+    document.getElementsByClassName('num')[0].innerHTML = 배열[0]
+    document.getElementsByClassName('num')[1].innerHTML = 배열[1]
+    document.getElementsByClassName('num')[2].innerHTML = 배열[2]
+    
+  </script>
+</body>
+</html>

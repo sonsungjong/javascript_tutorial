@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1 id="my_id">안녕하세요</h1>
+  <h1><span id="my_name">아무개</span> 입니다</h1>
+
+  <script>
+    // 자바스크립트 영역
+    // 자바스크립트 : HTML을 실시간으로 변화를 주기위해서 생겨난 프로그래밍 언어
+    document.getElementById('my_id').innerHTML = "반갑습니다"
+    document.getElementById('my_id').style.color = "blueviolet"
+
+    // 아무개 => 자기이름
+    document.getElementById('my_name').innerHTML = "홍길동"
+    document.getElementById('my_name').style.fontSize = "44pt";
+  </script>
+</body>
+</html>

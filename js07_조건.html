@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>조건</title>
+  <style>
+    input{
+      box-sizing: border-box;
+      padding: 2px 4px;
+      outline: none;
+    }
+    .정답{
+      border:2px solid yellowgreen;
+    }
+    .오답{
+      border:2px solid orangered;
+    }
+  </style>
+</head>
+<body>
+  
+  <h1>퀴즈</h1>
+  <form onsubmit=제출함수(event)>
+    <label for="퀴즈1">7 ＋ 5 = </label>
+    <input type="number" id="퀴즈1" />
+    <br/><br/>
+
+    <label for="퀴즈2">2 × 8 = </label>
+    <input type="number" id="퀴즈2"/>
+    <br/><br/>
+
+    <label for="퀴즈3">8 ÷ 2 = </label>
+    <input type="number" id="퀴즈3"/>
+    <br/><br/>
+
+    <input type="submit" value="제출" />
+  </form>
+
+  <script>
+    // 프로그래밍 언어에는 조건문 존재
+    // 상황에 따라서 다른 결과를 보여주기 위해 사용
+    // if(){}
+    function 제출함수(event){
+      // 제출이 되었을때 새로고침을 안한다
+      event.preventDefault();
+      document.getElementById('퀴즈1').classList.remove('정답')
+      document.getElementById('퀴즈1').classList.remove('오답')
+      document.getElementById('퀴즈2').classList.remove('정답')
+      document.getElementById('퀴즈2').classList.remove('오답')
+      document.getElementById('퀴즈3').classList.remove('정답')
+      document.getElementById('퀴즈3').classList.remove('오답')
+
+      // 각 input에 입력된 값을 가져와서 정답이 맞는지 체크
+      // value : return 으로 입력된 값을 제공
+      var 정답1 = document.getElementById('퀴즈1').value
+      var 정답2 = document.getElementById('퀴즈2').value
+      var 정답3 = document.getElementById('퀴즈3').value
+
+      // 입력한 정답이 정말로 맞는지 if문으로 검사
+      if(정답1 === "12"){
+        // 정답1에 입력한 값이 12가 맞다면 이쪽의 코드 실행
+        document.getElementById('퀴즈1').classList.add('정답')
+      }
+      else{
+        // () 의 조건이 맞지 않으면 (정답1에 적힌 값이 12가 아니면)
+        document.getElementById('퀴즈1').classList.add('오답')
+      }
+
+      if(정답2 === "16"){
+        document.getElementById('퀴즈2').classList.add('정답')
+      }
+      else{
+        document.getElementById('퀴즈2').classList.add('오답')
+      }
+
+      if(정답3 === "4"){
+        document.getElementById('퀴즈3').classList.add('정답')
+      }
+      else{
+        document.getElementById('퀴즈3').classList.add('오답')
+      }
+    }
+
+  </script>
+</body>
+</html>
