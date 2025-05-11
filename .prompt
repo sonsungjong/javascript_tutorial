@@ -1,0 +1,13 @@
+[TASK]
+- HTML과 JAVASCRIPT를 기반으로 한 CSS 완성
+
+[FEATURES]
+- CONTEXT를 참고해서 CSS를 적절하게 구성
+- 주석을 참고해서 작성
+- 배경 이미지가 더 잘 나올 수 있게 좀더 투명화
+- 등록 버튼이 너무 커서 왼쪽에 정렬된 채로 한 라인을 다 차지하지 않게
+- li태그의 폰트사이즈가 너무 작음. 좀더 키워줘.
+
+[CONSTRAINTS]
+- 기존의 HTML과 JAVASCRIPT 구조를 최대한 유지하면서 CSS 작성
+- 

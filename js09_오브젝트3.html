@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .hello{
+      color:blue;
+    }
+  </style>
+</head>
+<body>
+  <div id="box"></div>
+
+  <script>
+    // 자바스크립트로 HTML태그 생성 방법1
+    let p태그추가 = document.createElement('p');      // p태그 추가
+    p태그추가.innerHTML = "반갑습니다"                // <p>반갑습니다</p>
+    document.getElementById('box').appendChild(p태그추가);      // box의 자식요소로 p태그추가를 넣는다
+
+    // 자바스크립트로 HTML태그 생성 방법2
+    let html코드 = `<p class='hello'>안녕하세요</p><hr/>`
+    document.getElementById('box').innerHTML = html코드;      // innerHTML : 내용바꿈
+    document.getElementById('box').insertAdjacentHTML('beforeend', html코드);   // 뒤에 추가
+    document.getElementById('box').innerHTML += html코드;   // 뒤에 이어붙이기
+
+    // 객체
+    let 객체 = {이름:'아무개', 나이:17};
+    let 객체출력 = `<h1>${객체.이름}의 나이는 ${객체.나이}살 입니다.</h1>`
+    document.getElementById('box').innerHTML += 객체출력
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDo App</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* 폰트는 한국어로 */
+    }
+    body{
+      background-image: url('./img/kakao.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      min-width:100%;
+      min-height:100vh;
+      display:flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .form_container{
+      background:rgba(255, 255, 255, 0.85);
+      padding:30px;
+      border-radius:16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      width:90%;
+      max-width: 400px;
+      margin-top:20px;
+    }
+
+    .form_content{
+      display:flex;
+      flex-direction: column;
+      gap:12px;
+    }
+
+    .form_content h1{
+      text-align: center;
+      font-size:2rem;
+      color:#333;
+    }
+
+    #form_input{
+      padding:10px;
+      font-size:1rem;
+      border:1px solid #aaa;
+      border-radius:8px;
+      outline:none;
+      transition:border-color 0.3s;
+    }
+
+    #form_input:focus{
+      border-color:#ff9800;
+    }
+
+    .form_btn{
+      padding:10px;
+      font-size:1rem;
+      background:#ff9800;
+      color:white;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      transition:background-color 0.3s;
+      width:100px;
+    }
+
+    .form_btn:hover{
+      background-color:#e68900;
+    }
+
+    #todoList{
+      list-style: none;
+      margin-top:20px;
+    }
+
+    .todo_list{
+      background-color:#fafafa;
+      border:1px solid #ddd;
+      border-radius: 8px;
+      padding:10px 15px;
+      margin-bottom:10px;
+      display:flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size:large;
+    }
+
+    .todo_list span{
+      word-break:break-all;     /* 이것은 왜 넣은 것인지? */
+    }
+
+    .delete_btn{
+      background-color:#f44336;
+      border:none;
+      color:white;
+      padding:6px 12px;
+      border-radius:6px;
+      cursor:pointer;
+      font-size:0.9rem;
+      transition: background-color 0.3s;
+    }
+
+    .delete_btn:hover{
+      background-color:#d32f2f;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="form_container">
+    <form onsubmit="등록하기(event)">
+      <div class="form_content">
+        <h1>ToDo</h1>
+        <input id="form_input"/>
+        <button type="submit" class="form_btn">등록</button>
+      </div>
+    </form>
+    <ul id="todoList"></ul>
+  </div>
+
+  <script>
+    // li를 담을 배열
+    let 배열 = []
+
+    function 등록하기(event){
+      // form submit의 새로고침을 막는다
+      event.preventDefault();
+
+      // input에 입력된 내용을 가져와서 alert에 띄워봐야지
+      let 입력내용 = document.getElementById('form_input').value;
+      if(입력내용){
+        // 배열에다가 넣는다 push
+        배열.push(입력내용);
+  
+        // input 내용을 비워준다
+        document.getElementById('form_input').value = "";
+  
+        // 배열에 있는 내용을 모두 li태그로 ul#todoList에 추가한다
+        li태그추가하기();
+
+      }
+    }
+
+    function li태그추가하기(){
+      // 배열에 있는 모든 내용을 반복하면서 li태그로 넣는다
+      document.getElementById('todoList').innerHTML = '';   // 기존 내용은 지우고 다시 그린다
+
+      for(let 순번=0; 순번 < 배열.length; 순번++){
+        // ul태그에다가 li태그로 넣는다
+        document.getElementById('todoList').innerHTML += `
+          <li class='todo_list'>
+            <span>${배열[순번]}</span>
+            <button class='delete_btn'>삭제</button>
+          </li>
+        `
+      }
+
+      for(let 순번=0; 순번 < document.getElementsByClassName('delete_btn').length; 순번++){
+        // 모든 삭제 버튼에 대해서 클릭 이벤트를 추가한다 addEvent
+        document.getElementsByClassName('delete_btn')[순번].addEventListener('click', function(){
+          // 배열에서 [순번] 항목을 제거하고 splice
+          배열.splice(순번, 1);         // 배열에서 순번 위치부터 1개 삭제
+
+          // 다시 그린다
+          li태그추가하기();
+        });
+      }
+    }
+
+  </script>
+</body>
+</html>

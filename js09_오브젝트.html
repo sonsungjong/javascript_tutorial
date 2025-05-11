@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오브젝트</title>
+</head>
+<body>
+  <h1 id="name"></h1>
+  <h1 id="age"></h1>
+  <h1 id="hobby"></h1>
+  <h1 id="greeting"></h1>
+
+  <script>
+    // 변수의 자료형 : 정수, 실수, 문자열, 배열, 오브젝트
+    // 정수 : 소수점없는 숫자
+    // 실수 : 소수점있는 숫자
+    // 문자열 : 글자 ("" 로 감싸준다)
+    // 배열 : 변수들의 묶음 ([] 로 감싸서 ,로 구분)
+    var 정수 = 0;
+    var 실수 = 1.1;
+    var 문자열 = "글자";
+    var 배열 = [1, 2, "글"];
+
+    // 오브젝트 (주제별로 변수와 함수를 묶음)
+    // 사람에 대해서 오브젝트 생성
+    var 사람 = {
+      이름: "아무개",
+      나이: 17,
+      취미: "축구",
+      인사하기: function(){
+        return "안녕하세요"
+      }
+    }
+
+    document.getElementById('name').innerHTML = 사람.이름;
+    document.getElementById('age').innerHTML = 사람.나이;
+    document.getElementById('hobby').innerHTML = 사람.취미;
+    document.getElementById('greeting').innerHTML = 사람.인사하기();
+
+  </script>
+</body>
+</html>

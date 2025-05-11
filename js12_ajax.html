@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajax</title>
+</head>
+<body>
+  
+  <button id="get">GET요청</button>
+  <button id="post">POST요청</button>
+  <button id="clear">지우기</button>
+  <pre id="content"></pre>
+
+  <script>
+    // Ajax : 비동기로 다른 곳에 무언가를 요청
+    // GET요청, POST요청
+    document.getElementById('get').addEventListener('click', function(){
+      // fetch
+      fetch('https://httpbin.org/get')
+      .then((받아온거) => {
+        // 결과 요청
+        return 받아온거.text()
+      })
+      .then((데이터) =>{
+        // 결과 요청 후 응답까지 받은 다음
+        document.getElementById('content').innerHTML = 데이터
+      })
+    })
+
+    document.getElementById('clear').addEventListener('click', function(){
+      document.getElementById('content').innerHTML = '';
+    })
+
+    // POST 요청(보안, 긴문자)
+    document.getElementById('post').addEventListener('click', ()=>{
+      fetch('https://httpbin.org/post', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body:JSON.stringify({
+          
+        })
+      })
+      .then((받은거)=>{
+        // 다 받을때까지 기다린다음에
+        // json형태로 만들어서 return으로 밑에 전달
+        return 받은거.json()        // return하면 밑에 then에게 전달
+      })
+      .then((다받은거)=>{
+        // text() : 바로 써도 됨
+        // json() : JSON.stringify 로 변환해서 사용
+        document.getElementById('content').innerHTML = JSON.stringify(다받은거)
+      })
+    })
+
+    // 화살표함수
+    // function(){}
+    // ()=>{}
+    // (한개)=>{}
+    // 한개=>{}
+    // ()=>{ return 1 }
+    // ()=>1          // return 1
+    // ()=>{ 한줄; 두줄; return 1; }
+
+  </script>
+</body>
+</html>

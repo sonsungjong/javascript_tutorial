@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>async/await</title>
+</head>
+<body>
+  <!-- 좀 오래 걸리는 작업을 async function (){} -->
+  <button onclick="파일읽기()">텍스트 파일 읽기</button>
+  <pre id="content"></pre>
+
+  <script>
+    async function 파일읽기(){
+      // 오래 걸릴 수 있다 (코드 실행 속도) => async function
+      // 오래 걸리는 동안 화면을 멈춰놓을 순 없으니 async를 붙여서 비동기로 실행시킨다
+      // 나는 화면을 계속해서 동작할 수 있게 해놓고 다른 일꾼이 파일읽기 작업을 계속한다
+      let 결과 = await fetch('myfile.txt');          // 오래 걸리는 작업 (코드 실행 속도)
+
+      // 결과가 잘 수행되었는지 먼저 체크
+      if(결과.ok){
+        let 글자 = await 결과.text();      // fetch로 가져온건 text() 나 json() 으로 바꿈
+        
+        // 완료된 글자를 #content 에 집어넣는다 innerHTML
+        console.log(글자)
+        document.getElementById('content').innerHTML = 글자
+      }else{
+        // 예외처리 (실패했을 경우에 대한 대비)
+        document.getElementById('content').innerHTML = "파일읽기 요청에 실패했습니다"
+      }
+    }
+
+    
+  </script>
+
+</body>
+</html>
