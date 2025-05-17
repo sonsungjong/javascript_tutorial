@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="promise기다리기()">이미지 받아오기</button>
+  <br/>
+  <img src="" alt="" id="my_image"/>
+
+  <script>
+    // 외부 사이트에서 이미지를 받아와서 보여주기
+    function promise기다리기(){
+      let 이미지주소 = 'https://picsum.photos/500?r=' + Math.random();
+
+      // 이미지를 받아오는 역할은 promise에게 맡긴다
+      let 프라미스 = new Promise((성공, 실패)=>{
+        document.getElementById('my_image').src = 이미지주소;
+        
+        // 이미지가 정상적으로 들어갔으면 성공() 사용
+        document.getElementById('my_image').onload = ()=>{
+          성공()
+        }
+
+        // 이미지가 정상적으로 들어가지 않았으면 실패() 사용
+        document.getElementById('my_image').onerror = ()=>{
+          실패()
+        }
+      });
+
+      프라미스.then(()=>{
+        alert("이미지 가져오기 성공");
+      })
+      .catch(()=>{
+        alert("이미지 가져오기 실패");
+      })
+    }
+  </script>
+</body>
+</html>

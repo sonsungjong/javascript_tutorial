@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1 id="비어있니"></h1>
+  <h1 id="이거있니"></h1>
+  <h1 id="이거있고비어있니"></h1>
+
+
+  <script>
+    // ? : 객체랑 같이 사용
+    // ??
+    let user = {
+      "이름":"아무개"
+    };
+    let user2;
+
+    // ?? : 비어있니?
+    let result = user ?? "비어있다"
+    document.getElementById('비어있니').innerHTML = result
+
+    // ? : 객체 안에 정말로 있는 키값이니?
+    document.getElementById('이거있니').innerHTML = user?.이름
+
+    let 키도있고값도있다 = user?.이름?.성씨 ?? "없는 성씨"
+    document.getElementById('이거있고비어있니').innerHTML = 키도있고값도있다
+
+  </script>
+
+</body>
+</html>

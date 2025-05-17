@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise</title>
+</head>
+<body>
+  
+  <button onclick="오래걸리는작업()">작업시작</button>
+  <p id="msg"></p>
+
+  <script>
+    // Promise
+    // async - await
+
+    function 오래걸리는작업(){
+      // 랜덤을 돌려서 50보다 크면 성공, 50보다 작으면 실패
+      document.getElementById('msg').innerHTML = "작업 중...";
+
+      let promise요청 = new Promise((성공, 실패)=>{
+        setTimeout(()=>{
+          let 큰값 = (Math.random() * 100) > 50
+          if(큰값 == true){
+            성공("50%를 넘었습니다! {then으로 보낸다}")
+          }else{
+            실패("50% 이하입니다... {catch로 보낸다}")
+          }
+        }, 1000);
+      })
+
+      // promise요청이 잘 마쳤으면 수행할 코드를 then으로 적어준다
+      promise요청.then((결과)=>{
+        // 처음의 then은 결과가 무사히 종료되었는지 알람
+        let 글자 = 결과
+        return 글자
+      })
+      .then((글자)=>{
+        // 성공했을 때의 작업
+        alert(글자);
+      })
+      .catch((오류)=>{
+        // 실패했을 때의 작업
+        alert(오류);
+      })
+      .finally(()=>{
+        // finally : 성공이든 실패든 상관없이 마무리 작업
+        document.getElementById('msg').innerHTML = '';
+      })
+    }
+
+  </script>
+</body>
+</html>
