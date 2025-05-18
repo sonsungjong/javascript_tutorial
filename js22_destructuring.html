@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+    // Destructuring : 객체를 변수로 저장할 때 까서 저장할 수 있음
+    let 객체1 = {'name':'아무개', 'age':19, 'hobby':'computer'}
+    let {name, age, hobby} = {'name':'아무개', 'age':19, 'hobby':'computer'}
+
+    console.log(객체1.hobby)
+    console.log(hobby)
+
+    function 화면에보여주자(객체){
+      console.log(객체?.name)
+      console.log(객체?.age)
+      console.log(객체?.hobby)
+    }
+
+    function 화면보여주기2({name, age, hobby}){
+      console.log(name)
+      console.log(age)
+      console.log(hobby)
+    }
+
+    //화면에보여주자(객체1);
+    화면보여주기2(객체1);
+
+  </script>
+
+  <script src="./js/js01_변수.js">
+    // 자바스크립트 파일을 html로 가져옴
+  </script>
+
+</body>
+</html>

@@ -14,6 +14,9 @@
   <hr/>
   <button onclick="loadLocal()">로컬스토리지 읽기</button>
   <button onclick="loadSession()">세션스토리지 읽기</button>
+  <br/>
+  <button onclick="deleteLocal()">로컬스토리지 삭제</button>
+  <button onclick="deleteSession()">세션스토리지 삭제</button>
 
   <script>
     // 비회원 장바구니 담기 (웹사이트에는 작은 공간 기록)
@@ -30,7 +33,7 @@
       document.getElementById('content').value = '';
 
       // 가져온 글자를 로컬스토리지에 setItem으로 저장
-      localStorage.setItem('로컬', 변수);
+      변수 ? localStorage.setItem('로컬', 변수) : null
     }
 
     function saveSession(){
@@ -39,17 +42,27 @@
       document.getElementById('content').value = '';
 
       // 가져온 글자를 세션스토리지에 setItem으로 저장
-      sessionStorage.setItem('세션', 변수);
+      변수 ? sessionStorage.setItem('세션', 변수) : null
     }
 
     function loadLocal(){
       let 변수 = localStorage.getItem('로컬');
-      alert(변수);
+      변수 ? alert(변수) : null
     }
 
     function loadSession(){
       let 변수 = sessionStorage.getItem('세션');
-      alert(변수);
+      변수 ? alert(변수) : null
+    }
+
+    function deleteLocal(){
+      // 로컬스토리지에 있는 항목을 removeItem 으로 없앤다
+      localStorage.removeItem('로컬');
+    }
+
+    function deleteSession(){
+      // 세션스토리지에 있는 항목을 removeItem 으로 없앤다
+      sessionStorage.removeItem('세션');
     }
   </script>
 </body>

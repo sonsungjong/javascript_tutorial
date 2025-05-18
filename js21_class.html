@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>클래스</title>
+</head>
+<body>
+  
+  <script>
+    // 객체 (관련된 데이터들을 묶어서 관리)
+    let 길동이 = {'이름':'홍길동', '나이':19, '취미':'컴퓨터'}
+    console.log(길동이.이름)
+    
+    // constructor : 오브젝트를 쉽게쉽게 만들기 위해
+    function 기본생성자(){
+      this.이름 = '홍길동';
+      this.나이 = 19;
+      this.취미 = '컴퓨터';
+    }
+
+    function 생성자(이름, 나이, 취미){
+      this.이름 = 이름;
+      this.나이 = 나이;
+      this.취미 = 취미;
+    }
+
+    let 사람A = new 기본생성자();
+    let 사람B = new 기본생성자();
+    let 사람C = new 기본생성자();
+    console.log(사람A.취미);
+    console.log(사람B.취미);
+    console.log(사람C.취미);
+
+    let 사람D = new 생성자('아무개', 17, '캠핑');
+    let 사람E = new 생성자('사랑이', 15, '사진찍기');
+    console.log(사람D.취미)
+    console.log(사람E.취미)
+
+    // 사람을 찍어내기 위한 형태
+    class 사람{
+      // constructor
+      constructor(이름, 나이, 취미){
+        this.이름 = 이름;
+        this.나이 = 나이;
+        this.취미 = 취미;
+      }
+
+      소개(){
+        console.log(`안녕하세요 ${this.이름} 입니다.`);
+      }
+    }
+
+    let 인간A = new 사람('Adam', 30, '놀기')
+    console.log(인간A.취미)
+    인간A.소개()
+
+  </script>
+</body>
+</html>

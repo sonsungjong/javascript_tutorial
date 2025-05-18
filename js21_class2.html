@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    function 생성자(){
+      this.객체변수A = 'A';
+    }
+
+    // class : 상속 extends
+    class 사람{
+      // constructor(){}
+      이름 = '홍길동';
+      나이 = 19;
+
+      소개(){
+        console.log(`안녕하세요 ${이름} 입니다`)
+      }
+    }
+
+    let 사람A = new 사람()
+    console.log(사람A.이름)
+
+    // class 사람에 있는 코드를 class 화가에 복붙해라
+    class 화가 extends 사람{
+      // 사람에 있는 것 중
+      // 더 추가해야하거나, 수정해야하거나, 삭제해야하기 때문에 복붙
+      직업 = '웹툰작가'     // 추가OK
+
+      // 수정OK
+      소개(){
+        console.log(`안녕하세요 ${this.이름} 입니다. 제 직업은 ${this.직업} 입니다`)
+      }
+
+      // 삭제? => 그냥 안쓰면 됨
+    }
+
+    let 작가 = new 화가();
+    console.log(작가.직업)
+    작가.소개()
+
+  </script>
+</body>
+</html>
