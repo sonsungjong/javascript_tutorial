@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스토리지</title>
+</head>
+<body>
+  
+  <input id="content" />
+  <br/>
+  <button onclick="saveLocal()">로컬스토리지에 저장</button>
+  <button onclick="saveSession()">세션스토리지에 저장</button>
+  <hr/>
+  <button onclick="loadLocal()">로컬스토리지 읽기</button>
+  <button onclick="loadSession()">세션스토리지 읽기</button>
+
+  <script>
+    // 비회원 장바구니 담기 (웹사이트에는 작은 공간 기록)
+    // 로컬스토리지 localStorage : 반영구적으로 웹사이트에 기록
+    // 세션스토리지 sessionStorage : 웹사이트 껏다키면 없어짐
+
+    // localStorage.setItem('키워드', '저장할값')
+    // localStorage.removeItem('키워드')
+    // localStorage.getItem('키워드')
+
+    function saveLocal(){
+      // input에 적힌 글자를 가져온다
+      let 변수 = document.getElementById('content').value;
+      document.getElementById('content').value = '';
+
+      // 가져온 글자를 로컬스토리지에 setItem으로 저장
+      localStorage.setItem('로컬', 변수);
+    }
+
+    function saveSession(){
+      // input에 적힌 글자를 가져온다
+      let 변수 = document.getElementById('content').value;
+      document.getElementById('content').value = '';
+
+      // 가져온 글자를 세션스토리지에 setItem으로 저장
+      sessionStorage.setItem('세션', 변수);
+    }
+
+    function loadLocal(){
+      let 변수 = localStorage.getItem('로컬');
+      alert(변수);
+    }
+
+    function loadSession(){
+      let 변수 = sessionStorage.getItem('세션');
+      alert(변수);
+    }
+  </script>
+</body>
+</html>
